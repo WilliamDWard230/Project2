@@ -10,3 +10,36 @@ of the pets in the list.
 
 Our Pet class will include getter methods to get whatever information a user could want to retreive. Setter methods will also be 
 included if pet names or other atributes will want to be changed. 
+
+
+class Pet{
+    private:
+        string Type;
+        string Name;
+        int Age;
+    public:
+        getters()
+        setters()
+};
+
+template <typename T>
+class PetNode{
+    public:
+        T Info;
+        ItemNode* Next;
+
+        ItemNode(T givenInfo){
+            this -> Info = givenInfo;
+            Next = NULL;
+        }
+};
+
+template <typename T>
+class PetLinkedList{
+    private:
+        PetNode<T>* Head;
+        PetNode<T>* Tail;
+    public:
+        int SortingFunc();
+        void PushToLocation();
+}
