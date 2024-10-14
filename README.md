@@ -1,0 +1,1 @@
+We will use the same frame work from the previous project. We will read in a  text file containing pet info. The data will go through a constructor and a class object will be created. We will also use a node class and linked list class using template<typename T> as the data type. The pet object will be passed in as the T type object and be pushed to the linked list. 
