@@ -3,13 +3,13 @@ The data will go through a constructor and a class object will be created. We wi
 list class using template<typename T> as the data type. The pet object will be passed in as the T type object and be 
 pushed to the linked list. 
 
-Attached to our Linked List class will be a variety of functions. This class will include sorting algorithims to arrange pet data
-numorous amounts of ways (ascending order, decending order, ect...). This class will also include methods to find certian items
-in the list and add or remove items in the list. There will also be a function to display the items in the list or specfic values
+Attached to our Linked List class will be a variety of functions. This class will include sorting algorithms to arrange pet data
+numerous amounts of ways (ascending order, descending order, ect...). This class will also include methods to find certain items
+in the list and add or remove items in the list. There will also be a function to display the items in the list or specific values
 of the pets in the list.
 
-Our Pet class will include getter methods to get whatever information a user could want to retreive. Setter methods will also be 
-included if pet names or other atributes will want to be changed. 
+Our Pet class will include getter methods to get whatever information a user could want to retrieve. Setter methods will also be 
+included if pet names or other attributes will want to be changed. 
 
 
 class Pet{                     //data class
