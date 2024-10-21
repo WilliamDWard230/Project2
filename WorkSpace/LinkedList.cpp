@@ -2,9 +2,17 @@
 #include <iostream>
 using namespace std;
 
-void setHead(){}
-void setTail(){}
+template <typename T>
+void setHead(PetNode<T> *givenHead);
 
-void insertNode(){}
-char getPetLetter(){}
-void insertionSortPetNode(){}
+template <typename T>
+void setTail(PetNode<T> *givenTail);
+
+void insertNode(int, int);
+char getPetLetter();
+void insertionSortPetNode();
+
+void findPetByAgeLinear(int);
+void findPetByAgeBinary(int);
+
+void printList();

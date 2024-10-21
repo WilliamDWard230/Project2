@@ -25,6 +25,8 @@ class Pet{
     string getAge();
     string getName();
     string getType();
+
+    //and 3 "sub-data" methods
 };
 
 #endif 
