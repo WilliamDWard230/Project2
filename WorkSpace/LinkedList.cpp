@@ -3,42 +3,49 @@
 using namespace std;
 
 template <typename T>
-void setHead(PetNode<T> *givenHead)
+void PetLinkedList<T>::setHead(PetNode<T> *givenHead)
 {
 
 }
 
 template <typename T>
-void setTail(PetNode<T> *givenTail)
+void PetLinkedList<T>::setTail(PetNode<T> *givenTail)
 {
 
 }
 
-void insertNode()
+template <typename T>
+void PetLinkedList<T>::insertNode()
 {
     cout <<"Test";
 }
 
-char getPetLetter()
+template <typename T>
+char PetLinkedList<T>::getPetLetter()
 {
 
 }
 
-void insertionSortPetNode()
+template <typename T>
+void PetLinkedList<T>::insertionSortPetNode()
 {
 
 }
 
-void findPetByAgeLinear()
+template <typename T>
+void PetLinkedList<T>::findPetByAgeLinear()
 {
 
 }
-void findPetByNameLinear()
+
+template <typename T>
+void PetLinkedList<T>::findPetByNameLinear()
 {
 
 }
 
-void printList()
+template <typename T>
+void PetLinkedList<T>::printList()
 {
 
 }

@@ -1,5 +1,7 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
+#include <iostream>
+using namespace std;
 
 template <typename T>
 class PetNode
@@ -36,8 +38,8 @@ class PetLinkedList
         //DESTRUCTOR
         ~PetLinkedList();
 
-        PetNode* getHead();
-        PetNode* getTail();
+        PetNode<T>* getHead();
+        PetNode<T>* getTail();
 
         void setHead(PetNode<T>* givenHead);
         void setTail(PetNode<T>* givenTail);
