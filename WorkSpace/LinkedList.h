@@ -42,12 +42,13 @@ class PetLinkedList
         void setHead(PetNode<T>* givenHead);
         void setTail(PetNode<T>* givenTail);
 
-        void insertNode(int, int);
+        void insertNode();
         char getPetLetter();
         void insertionSortPetNode();
 
-        void findPetByAgeLinear(int);
-        void findPetByAgeBinary(int);
+        void findPetByAgeLinear();
+        void findPetByNameLinear();
+        // void findPetByNameLinear();
 
         void printList();
 

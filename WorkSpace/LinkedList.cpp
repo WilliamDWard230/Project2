@@ -3,16 +3,42 @@
 using namespace std;
 
 template <typename T>
-void setHead(PetNode<T> *givenHead);
+void setHead(PetNode<T> *givenHead)
+{
+
+}
 
 template <typename T>
-void setTail(PetNode<T> *givenTail);
+void setTail(PetNode<T> *givenTail)
+{
 
-void insertNode(int, int);
-char getPetLetter();
-void insertionSortPetNode();
+}
 
-void findPetByAgeLinear(int);
-void findPetByAgeBinary(int);
+void insertNode()
+{
+    cout <<"Test";
+}
 
-void printList();
+char getPetLetter()
+{
+
+}
+
+void insertionSortPetNode()
+{
+
+}
+
+void findPetByAgeLinear()
+{
+
+}
+void findPetByNameLinear()
+{
+
+}
+
+void printList()
+{
+
+}
