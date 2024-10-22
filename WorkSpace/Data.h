@@ -26,6 +26,19 @@ class Pet{
     string getName();
     string getType();
 
+    bool operator==(Pet& right_comparison) {return this -> Age == right_comparison.Age;}
+    bool operator<(Pet& right_comparison) {return this -> Age < right_comparison.Age;}
+    bool operator>(Pet& right_comparison) {return this -> Age > right_comparison.Age;}
+
+    friend ostream& operator<<(ostream& os, Pet& aPet)
+    {
+        os << "Name: " << aPet.Name << endl;
+        os << "Type: " << aPet.Type << endl;
+        os << "Age: " << aPet.Age << endl;
+
+        return os;
+    }
+
     //and 3 "sub-data" methods
 };
 

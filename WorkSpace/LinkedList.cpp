@@ -17,7 +17,7 @@ void PetLinkedList<T>::setTail(PetNode<T> *givenTail)
 template <typename T>
 void PetLinkedList<T>::insertNode()
 {
-    cout <<"Test";
+
 }
 
 template <typename T>

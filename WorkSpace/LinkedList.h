@@ -38,8 +38,8 @@ class PetLinkedList
         //DESTRUCTOR
         ~PetLinkedList();
 
-        PetNode<T>* getHead();
-        PetNode<T>* getTail();
+        PetNode<T>* getHead() {return Head;}
+        PetNode<T>* getTail() {return Tail;}
 
         void setHead(PetNode<T>* givenHead);
         void setTail(PetNode<T>* givenTail);
