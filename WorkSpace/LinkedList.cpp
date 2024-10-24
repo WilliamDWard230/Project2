@@ -1,51 +1,33 @@
 #include "LinkedList.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
-template <typename T>
-void PetLinkedList<T>::setHead(PetNode<T> *givenHead)
-{
+// template <typename T>
+// void PetLinkedList<T>::insertAtHead(T givenObject){
+//     PetNode<T>* newNode = new PetNode<T>;
+//     if(Head == NULL){
+//         Head = newNode;
+//         return;
+//     }
+//     newNode -> setNext(Head -> getNext());
+//     Head = newNode;
+// }
+// template <typename T>
+// void PetLinkedList<T>::printList(){
+//     PetNode<T>* temp = Head;
 
-}
+//     if (Head == NULL){
+//         cout << "List is empty" << endl;
+//         return;
+//     }
+//     while (temp != NULL){
+//                 cout << temp->getType() << endl;
+//                 cout << temp->getName() << endl;
+//                 cout << temp->getAge() << endl;
+//                 cout << endl;
 
-template <typename T>
-void PetLinkedList<T>::setTail(PetNode<T> *givenTail)
-{
+//                 temp = temp -> getNext();
+//     }
+// }
 
-}
-
-template <typename T>
-void PetLinkedList<T>::insertNode()
-{
-
-}
-
-template <typename T>
-char PetLinkedList<T>::getPetLetter()
-{
-
-}
-
-template <typename T>
-void PetLinkedList<T>::insertionSortPetNode()
-{
-
-}
-
-template <typename T>
-void PetLinkedList<T>::findPetByAgeLinear()
-{
-
-}
-
-template <typename T>
-void PetLinkedList<T>::findPetByNameLinear()
-{
-
-}
-
-template <typename T>
-void PetLinkedList<T>::printList()
-{
-
-}

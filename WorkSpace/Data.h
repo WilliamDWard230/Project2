@@ -39,7 +39,6 @@ class Pet{
         return os;
     }
 
-    //and 3 "sub-data" methods
 };
 
 #endif 
