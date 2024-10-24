@@ -13,7 +13,6 @@ int main(){
     string age;
 
 
-
     ifstream file("VetPetInfo.txt");
 
     file >> testString;
@@ -36,7 +35,6 @@ int main(){
         PetList.insertAtHead(*tempPet);
     }
     PetList.printList();
-    cout << PetList.getLength();
 
     return 0;
 }

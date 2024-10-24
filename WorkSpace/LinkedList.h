@@ -10,7 +10,6 @@ class PetNode
     private:
         T Data;
         PetNode* Next;
-
     public:
         PetNode(T givenData)
         {
@@ -19,10 +18,7 @@ class PetNode
         }
         void setNext(PetNode* givenNext) {Next = givenNext;}
         PetNode* getNext() {return Next;}
-        T getData(){
-            return Data;
-        }
-
+        T getData() {return Data;}
 };
 
 template <typename T>
@@ -31,22 +27,34 @@ class PetLinkedList
     private:
         PetNode<T>* Head;
         PetNode<T>* Tail;
-
     public:
         PetLinkedList()
         {
             Head = NULL;
             Tail = NULL;
         }
-        void insertAtHead(T &givenObject){
+        T* getHead(){
+            return Head;
+        }
+        // T* setHead(T &object){
+        //     Head = object;
+        //     return Head;
+        // }
+        
+        void insertAtHead(T givenObject)
+        {
             PetNode<T>* newNode = new PetNode<T>(givenObject);
             if(Head == NULL){
                 Head = newNode;
             }
-            newNode -> setNext(Head -> getNext());
+            else{
+            newNode -> setNext(Head);
             Head = newNode;
+            }
         }
-        void printList(){
+
+        void printList()
+        {
             PetNode<T>* temp = Head;
 
             if (Head == NULL){
@@ -62,7 +70,9 @@ class PetLinkedList
                 temp = temp -> getNext();
             }
         }
-        int getLength(){
+
+        int getLength()
+        {
             int count = 0;
             PetNode<T>* temp = Head;
             if (Head == NULL){
@@ -74,7 +84,6 @@ class PetLinkedList
             }
             return count;
         }
-
 };
 
 #endif
