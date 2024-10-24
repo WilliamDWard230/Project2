@@ -6,6 +6,7 @@ using namespace std;
 
 
 int main(){
+
     PetLinkedList<Pet> PetList;
     string testString;
     string type;
@@ -16,7 +17,8 @@ int main(){
     ifstream file("VetPetInfo.txt");
 
     file >> testString;
-    while ((testString.find(',')) != std::string::npos) {
+    while ((testString.find(',')) != std::string::npos) 
+    {
 
         int typeEnd = testString.find(',');
         type = testString.substr(0, typeEnd);
@@ -35,13 +37,19 @@ int main(){
         Pet* tempPet = new Pet(type, name, age, object);
         PetList.insertAtHead(*tempPet);
     }
+
     PetList.printList();
-    if (PetList.isEmpty()){
+
+    if (PetList.isEmpty())
+    {
         cout << "List is emplty";
     }
-    else{
+    else
+    {
         cout << "List is not empty";
     }
+
+    PetList.sortByAge();
     
     return 0;
 }

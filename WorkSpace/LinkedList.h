@@ -28,35 +28,58 @@ class PetLinkedList
         PetNode<T>* Head;
         PetNode<T>* Tail;
     public:
+        //DEFULT CONSTRUCTOR
         PetLinkedList()
         {
             Head = NULL;
             Tail = NULL;
         }
+
+        //DECONSTRUCTOR
+        ~PetLinkedList()
+        {
+            PetNode<T>* nodePtr;
+            PetNode<T>* nextNode;
+
+            nodePtr = Head;
+
+            while(nodePtr != NULL)
+            {
+                nextNode = nodePtr->getNext();
+
+                delete nodePtr;
+
+                nodePtr = nextNode;
+            }
+        }
+
         T* getHead() {return Head;}
 
-
-        
         void insertAtHead(T givenObject)
         {
             PetNode<T>* newNode = new PetNode<T>(givenObject);
-            if(Head == NULL){
+
+            if(Head == NULL)
+            {
                 Head = newNode;
             }
-            else{
-            newNode -> setNext(Head);
-            Head = newNode;
+            else
+            {
+                newNode -> setNext(Head);
+                Head = newNode;
             }
         }
 
         void printList()
         {
             PetNode<T>* temp = Head;
-            if (Head == NULL){
+            if (Head == NULL)
+            {
                 cout << "List is empty" << endl;
                 return;
             }
-            while (temp != NULL){
+            while (temp != NULL)
+            {
                 cout << temp-> getData().getType()<< endl;
                 cout << temp-> getData().getName() << endl;
                 cout << temp-> getData().getAge() << endl;
@@ -80,7 +103,33 @@ class PetLinkedList
             return count;
         }
 
-        bool isEmpty(){
+        //sorts the list via Insertion Sort
+        void insertionSortByAge()
+        {
+            PetNode<T>* nodePtr = Head;
+            PetNode<T>* nextNode = NULL;
+
+            if(!Head)
+            {
+                cout << "\nThe  list is empty... nothing to sort.\n\n";
+                return;
+            }
+            else
+            {
+                nextNode = nodePtr->getNext();
+
+                //I do not know how to use the get Data yet (trying to get the age of the pet)
+                cout << nodePtr->getData().getAge();
+
+                if(nodePtr->getData().getAge() > nextNode->getData().getAge())
+                {
+                    
+                }
+            }
+        }
+
+        bool isEmpty()
+        {
             if(Head == NULL)
             {
                 return true;

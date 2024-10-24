@@ -1,32 +1,32 @@
 #include "LinkedList.h"
 #include <iostream>
+
 using namespace std;
 
-// template <typename T>
-// void PetLinkedList<T>::insertAtHead(T givenObject){
-//     PetNode<T>* newNode = new PetNode<T>;
-//     if(Head == NULL){
-//         Head = newNode;
-//         return;
-//     }
-//     newNode -> setNext(Head -> getNext());
-//     Head = newNode;
-// }
-// template <typename T>
-// void PetLinkedList<T>::printList(){
-//     PetNode<T>* temp = Head;
 
-//     if (Head == NULL){
-//         cout << "List is empty" << endl;
-//         return;
-//     }
-//     while (temp != NULL){
-//                 cout << temp->getType() << endl;
-//                 cout << temp->getName() << endl;
-//                 cout << temp->getAge() << endl;
-//                 cout << endl;
 
-//                 temp = temp -> getNext();
-//     }
-// }
+/*
+template <typename T>
+void PetLinkedList<T>::sortByAge()
+{
+    PetNode<T>* nodePtr = Head;
+    PetNode<T>* nextNode = NULL;
 
+    if(!Head)
+    {
+        cout << "\nThe  list is empty... nothing to sort.\n\n";
+        return;
+    }
+    else
+    {
+        nextNode = nodePtr->getNext();
+
+        //I do not know how to use the get Data yet (trying to get the age of the pet)
+        cout << nodePtr->getData();
+
+        if(nodePtr->getData().getAge() > nextNode->getData().getAge())
+        {
+            
+        }
+    }
+}*/
