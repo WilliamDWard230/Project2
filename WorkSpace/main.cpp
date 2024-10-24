@@ -30,11 +30,18 @@ int main(){
         age = testString.substr(0,ageEnd);
         testString.erase(0, ageEnd+1);
 
+        HealthInfo object = HealthInfo(0,0,0);
 
-        Pet* tempPet = new Pet(type, name, age);
+        Pet* tempPet = new Pet(type, name, age, object);
         PetList.insertAtHead(*tempPet);
     }
     PetList.printList();
-
+    if (PetList.isEmpty()){
+        cout << "List is emplty";
+    }
+    else{
+        cout << "List is not empty";
+    }
+    
     return 0;
 }

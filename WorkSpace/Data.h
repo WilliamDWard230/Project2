@@ -3,25 +3,54 @@
 #include <iostream>
 using namespace std;
 
+class HealthInfo{
+    private:
+        double Weight;
+        double BMI;
+        double DesiredWeight;
+    public:
+        HealthInfo(){
+            Weight = 0;
+            BMI = 0;
+            DesiredWeight = 0;
+        }
+        HealthInfo(double givenWeight, double givenBMI, double givenDesiredWeight){
+            Weight = givenWeight;
+            BMI = givenBMI;
+            DesiredWeight = givenDesiredWeight;
+        }
+        void setWeight(double givenWeight);
+        void setBMI(double givenBMI);
+        void setDesiredWeight(double givenDesiredWeight);
+
+        double getWeight();
+        double getBMI();
+        double getDesiredWeight();
+};
 class Pet{
     private:
         string Type;
         string Name;
         string Age;
+        HealthInfo HealthObject;
+
     public:
         Pet(){
             Type = "Dog";
             Name = "Whiskers";
             Age = "69";
         }
-        Pet(string givenType, string givenName, string givenAge){
+        Pet(string givenType, string givenName, string givenAge, HealthInfo FillinObject){
             Type = givenType;
             Name = givenName;
             Age = givenAge;
+            HealthObject = FillinObject;
+            
         }
     void setAge(string givenAge);
     void setName(string givenNamme);
     void setType(string givenType);
+    HealthInfo getObject() {return HealthObject;}
     string getAge();
     string getName();
     string getType();

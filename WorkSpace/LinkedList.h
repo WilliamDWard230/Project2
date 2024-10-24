@@ -33,13 +33,9 @@ class PetLinkedList
             Head = NULL;
             Tail = NULL;
         }
-        T* getHead(){
-            return Head;
-        }
-        // T* setHead(T &object){
-        //     Head = object;
-        //     return Head;
-        // }
+        T* getHead() {return Head;}
+
+
         
         void insertAtHead(T givenObject)
         {
@@ -56,7 +52,6 @@ class PetLinkedList
         void printList()
         {
             PetNode<T>* temp = Head;
-
             if (Head == NULL){
                 cout << "List is empty" << endl;
                 return;
@@ -65,8 +60,8 @@ class PetLinkedList
                 cout << temp-> getData().getType()<< endl;
                 cout << temp-> getData().getName() << endl;
                 cout << temp-> getData().getAge() << endl;
+                // cout << temp-> getData().getObject().getWeight() << endl;    This Line works!
                 cout << endl;
-
                 temp = temp -> getNext();
             }
         }
@@ -84,6 +79,19 @@ class PetLinkedList
             }
             return count;
         }
+
+        bool isEmpty(){
+            if(Head == NULL)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
 };
 
 #endif
