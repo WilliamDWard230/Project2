@@ -16,7 +16,8 @@ int main(){
     string fileString;
     file >> fileString;
 
-    PetList.readInText(fileString, &PetList); 
+    PetList.readInText(fileString, &PetList);
+    current = PetList.iterator();
 
     do {
         cout << "\n\nWelcome to our Veterinary Office! What would you like to do today?" << endl;
@@ -56,9 +57,9 @@ int main(){
                 break;
             case 2:
                 do 
-                {   
-                    current = PetList.iterator();
-                    cout << current ->getData().getName();
+                { 
+                    Pet itr = current->getData();
+                    cout << itr << endl;
                     cout << "1. Next Character" << endl;
                     cout << "2. Previous Character" << endl;
                     cout << "3. Return to main menu" << endl;

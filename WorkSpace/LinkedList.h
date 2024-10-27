@@ -61,8 +61,10 @@ class PetLinkedList
             return current;
         }
         PetNode<T>* iteratorPlus(PetNode<T>* current){
-            
             current = current->getNext();
+            if current == NULL{
+                current = Head;
+            }
             return current;
         }
         void readInText(string testString, PetLinkedList<T>* PetList){
