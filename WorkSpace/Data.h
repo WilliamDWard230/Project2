@@ -11,7 +11,6 @@ class HealthInfo
     double BMI;
     double DesiredWeight;
 
-
     public:
 
     HealthInfo()
@@ -81,6 +80,11 @@ class Pet
         os << "Name: " << aPet.Name << endl;
         os << "Type: " << aPet.Type << endl;
         os << "Age: " << aPet.Age << endl;
+
+        os << "Weight: " << aPet.HealthObject.getWeight() << endl;
+        os << "Desired Weight: " << aPet.HealthObject.getDesiredWeight() << endl; 
+        os << "BMI: " << aPet.HealthObject.getBMI() << endl; 
+        os << "********************************";
 
         return os;
     }

@@ -5,51 +5,89 @@
 using namespace std;
 
 
+
 int main(){
-
     PetLinkedList<Pet> PetList;
-    string testString;
-    string type;
-    string name;
-    string age;
-
-
+    PetNode<Pet>* current;
+    int menuChoice; 
+    int subMenuChoice;
+    int count = 0;
     ifstream file("VetPetInfo.txt");
+    string fileString;
+    file >> fileString;
 
-    file >> testString;
-    while ((testString.find(',')) != std::string::npos) 
-    {
+    PetList.readInText(fileString, &PetList); 
 
-        int typeEnd = testString.find(',');
-        type = testString.substr(0, typeEnd);
-        testString.erase(0, typeEnd +1);
+    do {
+        cout << "\n\nWelcome to our Veterinary Office! What would you like to do today?" << endl;
+        cout << "1. View the Pets in the Kennel" << endl;
+        cout << "2. Add a Pet to the Kennel" << endl;
+        cout << "3. Update Pet Info" << endl;
+        cout << "4. Leave the Clinc" << endl;
+        cin >> menuChoice;
+        while (menuChoice < 1 || menuChoice > 4 || cin.fail())
+        {
+            if (cin.fail())
+            {
+                cout << "\nOops! please enter a number" << endl;
+                cin.clear();
+                cin.ignore();
+                cout << "\nWelcome to our Veterinary Office! What would you like to do today?" << endl;
+                cout << "1. View the Pets in the Kennel" << endl;
+                cout << "2. Add a Pet to the Kennel" << endl;
+                cout << "3. Update Pet Info" << endl;
+                cout << "4. Leave the Clinc" << endl;
+                cin >> menuChoice;
+            }
+            else
+            {
+                cout << "\nOops! you entered an invalid choice! Please enter 1, 2, or 3!" << endl;
+                cout << "\nWelcome to our Veterinary Office! What would you like to do today?" << endl;
+                cout << "1. View the Pets in the Kennel" << endl;
+                cout << "2. Add a Pet to the Kennel" << endl;
+                cout << "3. Update Pet Info" << endl;
+                cout << "4. Leave the Clinc" << endl;
+                cin >> menuChoice;
+            }
+        }
+        switch (menuChoice){
+            case 1:
+                PetList.printList();
+                break;
+            case 2:
+                do 
+                {   
+                    current = PetList.iterator();
+                    cout << current ->getData().getName();
+                    cout << "1. Next Character" << endl;
+                    cout << "2. Previous Character" << endl;
+                    cout << "3. Return to main menu" << endl;
+                    cin >> subMenuChoice;
+                    switch(subMenuChoice){
+                        case 1:
+                            current = PetList.iteratorPlus(current);
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                    }
+                } while (subMenuChoice != 3);
+                break;
+            case 3:
+            case 4:
+                cout << "\nBugger off then!" << endl;
+                PetList.~PetLinkedList();
+                break;
+        }
+    }while (menuChoice != 4);
+    
 
-        int nameEnd = testString.find(',');
-        name = testString.substr(0,nameEnd);
-        testString.erase(0, nameEnd+1);
 
-        int ageEnd = testString.find(',');
-        age = testString.substr(0,ageEnd);
-        testString.erase(0, ageEnd+1);
-
-        HealthInfo object = HealthInfo(0,0,0);
-
-        Pet* tempPet = new Pet(type, name, age, object);
-        PetList.insertAtHead(*tempPet);
-    }
-
-    PetList.printList();
-
-    if (PetList.isEmpty())
-    {
-        cout << "List is emplty";
-    }
-    else
-    {
-        cout << "List is not empty";
-    }
-
-    PetList.sortByAge();
+    //PetList.sortByAge();
     
     return 0;
 }
+
+
+

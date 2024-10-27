@@ -2,6 +2,7 @@
 #define LINKEDLIST_H
 #include "Data.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 template <typename T>
@@ -34,9 +35,8 @@ class PetLinkedList
             Head = NULL;
             Tail = NULL;
         }
-
         //DECONSTRUCTOR
-        ~PetLinkedList()
+        ~PetLinkedList()        
         {
             PetNode<T>* nodePtr;
             PetNode<T>* nextNode;
@@ -54,7 +54,46 @@ class PetLinkedList
         }
 
         T* getHead() {return Head;}
+        T* getTail() {return Tail;}
 
+        PetNode<T>* iterator(){
+            PetNode<T>* current = Head;
+            return current;
+        }
+        PetNode<T>* iteratorPlus(PetNode<T>* current){
+            
+            current = current->getNext();
+            return current;
+        }
+        void readInText(string testString, PetLinkedList<T>* PetList){
+            string type;
+            string name;
+            string age;
+
+            ifstream file("VetPetInfo.txt");
+
+            file >> testString;
+            while ((testString.find(',')) != std::string::npos) 
+            {
+                int typeEnd = testString.find(',');
+                type = testString.substr(0, typeEnd);
+                testString.erase(0, typeEnd +1);
+
+                int nameEnd = testString.find(',');
+                name = testString.substr(0,nameEnd);
+                testString.erase(0, nameEnd+1);
+
+                int ageEnd = testString.find(',');
+                age = testString.substr(0,ageEnd);
+                testString.erase(0, ageEnd+1);
+
+                HealthInfo object = HealthInfo(0,0,0);
+
+                Pet* tempPet = new Pet(type, name, age, object);
+                PetList -> insertAtHead(*tempPet);
+            }
+        }
+        
         void insertAtHead(T givenObject)
         {
             PetNode<T>* newNode = new PetNode<T>(givenObject);
@@ -89,20 +128,6 @@ class PetLinkedList
             }
         }
 
-        int getLength()
-        {
-            int count = 0;
-            PetNode<T>* temp = Head;
-            if (Head == NULL){
-                return count;
-            }
-            while(temp != NULL){
-                count++; 
-                temp = temp -> getNext();
-            }
-            return count;
-        }
-
         //sorts the list via Insertion Sort
         void insertionSortByAge()
         {
@@ -127,6 +152,20 @@ class PetLinkedList
                 }
             }
         }
+        
+        int getLength()
+        {
+            int count = 0;
+            PetNode<T>* temp = Head;
+            if (Head == NULL){
+                return count;
+            }
+            while(temp != NULL){
+                count++; 
+                temp = temp -> getNext();
+            }
+            return count;
+        }
 
         bool isEmpty()
         {
@@ -140,7 +179,7 @@ class PetLinkedList
             }
         }
 
-
 };
+
 
 #endif
