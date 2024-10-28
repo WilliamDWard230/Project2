@@ -67,6 +67,7 @@ class PetLinkedList
                 return false;
             }
         }
+        
         PetNode<T>* iterator(){
             PetNode<T>* current = Head;
             return current;
@@ -78,16 +79,17 @@ class PetLinkedList
             current = current->getNext();
             return current;
         }
+        
         void readInText(string testString, PetLinkedList<T>* PetList){
             string type;
             string name;
             string age;
-
+            int count = 0;
             ifstream file("VetPetInfo.txt");
 
             file >> testString;
             while ((testString.find(',')) != std::string::npos) 
-            {
+            {   
                 int typeEnd = testString.find(',');
                 type = testString.substr(0, typeEnd);
                 testString.erase(0, typeEnd +1);
@@ -101,9 +103,10 @@ class PetLinkedList
                 testString.erase(0, ageEnd+1);
 
                 HealthInfo object = HealthInfo(0,0,0);
-
+       
                 Pet* tempPet = new Pet(type, name, age, object);
                 PetList -> insertAtHead(*tempPet);
+        
             }
         }
         
@@ -117,7 +120,7 @@ class PetLinkedList
             }
             else
             {
-                newNode -> setNext(Head);
+                newNode ->setNext(Head);
                 Head = newNode;
             }
         }
@@ -140,11 +143,15 @@ class PetLinkedList
             }
         }
 
+
         //sorts the list via Insertion Sort
-        void insertionSortByAge()
-        {
+        void insertionSortByAge(T givenObject)
+        {   
+            PetNode<T>* newNode = new PetNode<T>(givenObject);
             PetNode<T>* nodePtr = Head;
             PetNode<T>* nextNode = NULL;
+            int comparisonAge;
+            int newAge;
 
             if(!Head)
             {
@@ -154,14 +161,24 @@ class PetLinkedList
             else
             {
                 nextNode = nodePtr->getNext();
+                while (nodePtr ->getNext() == NULL){
+                    comparisonAge = stoi(nextNode ->getData().getAge());
+                    newAge = stoi(newNode ->getData().getAge());
+                    if(comparisonAge < newAge)
+                    {
+                        newNode ->setNext(nextNode);
+                        Head = newNode;
+                    }
+                    if(comparisonAge > newAge)
+                    {
+                        newNode ->setNext(nextNode);
+                        Head = newNode;
+                    }
+                    nodePtr = nodePtr -> getNext();
+                    nextNode = nodePtr;
 
-                //I do not know how to use the get Data yet (trying to get the age of the pet)
-                cout << nodePtr->getData().getAge();
-
-                if(nodePtr->getData().getAge() > nextNode->getData().getAge())
-                {
-                    
                 }
+
             }
         }
         
@@ -178,8 +195,6 @@ class PetLinkedList
             }
             return count;
         }
-
-
 };
 
 

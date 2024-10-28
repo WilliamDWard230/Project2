@@ -43,7 +43,6 @@ class Pet
     string Age;
     HealthInfo HealthObject;
 
-
     public:
 
     //Default Constructor
