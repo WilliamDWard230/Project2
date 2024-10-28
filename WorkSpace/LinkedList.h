@@ -56,15 +56,26 @@ class PetLinkedList
         T* getHead() {return Head;}
         T* getTail() {return Tail;}
 
+        bool isEmpty()
+        {
+            if(Head == NULL)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         PetNode<T>* iterator(){
             PetNode<T>* current = Head;
             return current;
         }
         PetNode<T>* iteratorPlus(PetNode<T>* current){
-            current = current->getNext();
-            if current == NULL{
+            if (current ->getNext() == NULL){
                 current = Head;
             }
+            current = current->getNext();
             return current;
         }
         void readInText(string testString, PetLinkedList<T>* PetList){
@@ -119,11 +130,10 @@ class PetLinkedList
                 cout << "List is empty" << endl;
                 return;
             }
+            cout << "*****Pets*****" << endl;
             while (temp != NULL)
             {
-                cout << temp-> getData().getType()<< endl;
-                cout << temp-> getData().getName() << endl;
-                cout << temp-> getData().getAge() << endl;
+                cout << "Name: " << temp-> getData().getName();
                 // cout << temp-> getData().getObject().getWeight() << endl;    This Line works!
                 cout << endl;
                 temp = temp -> getNext();
@@ -169,17 +179,6 @@ class PetLinkedList
             return count;
         }
 
-        bool isEmpty()
-        {
-            if(Head == NULL)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
 };
 

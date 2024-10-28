@@ -62,7 +62,8 @@ int main(){
                     cout << itr << endl;
                     cout << "1. Next Character" << endl;
                     cout << "2. Previous Character" << endl;
-                    cout << "3. Return to main menu" << endl;
+                    cout << "3. Update information" << endl;
+                    cout << "4. Return to main menu" << endl;
                     cin >> subMenuChoice;
                     switch(subMenuChoice){
                         case 1:
@@ -72,8 +73,10 @@ int main(){
                             break;
                         case 3:
                             break;
+                        case 4:
+                            break;
                     }
-                } while (subMenuChoice != 3);
+                } while (subMenuChoice != 4);
                 break;
             case 3:
             case 4:
