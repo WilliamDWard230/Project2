@@ -125,6 +125,12 @@ class PetLinkedList
             }
         }
 
+        void removePet(PetNode<T>* previous, PetNode<T>* current)
+        {
+            previous -> setNext(current->getNext());
+            delete current;
+        }
+
         void printList()
         {
             PetNode<T>* temp = Head;

@@ -7,6 +7,7 @@ using namespace std;
 int main(){
     PetLinkedList<Pet> PetList;
     PetNode<Pet>* current;
+    PetNode<Pet>* previous;
     Pet itr1;
     int menuChoice; 
     int subMenuChoice;
@@ -65,14 +66,16 @@ int main(){
                     Pet itr = current->getData();
                     cout << itr << endl;
                     cout << "1. Next Character" << endl;
-                    cout << "2. Update information" << endl;
+                    cout << "2. Remove Pet" << endl;
                     cout << "3. Return to main menu" << endl;
                     cin >> subMenuChoice;
                     switch(subMenuChoice){
                         case 1:
+                            previous = current;
                             current = PetList.iteratorPlus(current);
                             break;
                         case 2:
+                            PetList.removePet(previous, current);
                             break;
                         case 3:
                             break;
