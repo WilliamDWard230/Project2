@@ -63,7 +63,7 @@ class Pet
     }
     
     void setAge(string givenAge);
-    void setName(string givenNamme);
+    void setName(string givenName);
     void setType(string givenType);
     HealthInfo getObject() { return HealthObject; }
     string getAge();

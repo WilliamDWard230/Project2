@@ -28,6 +28,7 @@ class PetLinkedList
     private:
         PetNode<T>* Head;
         PetNode<T>* Tail;
+        
     public:
         //DEFULT CONSTRUCTOR
         PetLinkedList()
@@ -72,12 +73,30 @@ class PetLinkedList
             PetNode<T>* current = Head;
             return current;
         }
+        
         PetNode<T>* iteratorPlus(PetNode<T>* current){
-            if (current ->getNext() == NULL){
+            if (current ->getNext() == NULL)
+            {
                 current = Head;
             }
+            else
+            {
             current = current->getNext();
+            }
             return current;
+        }
+
+        void removePet(PetNode<T>* previous, PetNode<T>* current)
+        {
+            if(Head == current)
+            {
+                Head = current->getNext();
+            }
+            else
+            {
+            previous -> setNext(current->getNext());
+            }
+            delete current;
         }
         
         void readInText(string testString, PetLinkedList<T>* PetList){
@@ -125,10 +144,66 @@ class PetLinkedList
             }
         }
 
-        void removePet(PetNode<T>* previous, PetNode<T>* current)
-        {
-            previous -> setNext(current->getNext());
-            delete current;
+        void updatePetInfo(PetNode<T>* previous, PetNode<T>* current)
+        {   
+            HealthInfo object;
+            Pet* temp;
+            string name;
+            string type;
+            string age;
+            int selection;
+            double weight;
+            double desiredWeight;
+            double bmi;
+
+            cout << current->getData().getName() << " -----------" << endl;
+            cout << "What information are you updating? \n";
+            cout << "1. Name" << endl;
+            cout << "2. Type" << endl;
+            cout << "3. Age" << endl;
+            cout << "4. Weight" << endl;
+            cout << "5. Desired Weight" << endl;
+            cout << "6. BMI" << endl;
+            cin >> selection;
+
+            switch(selection)
+            {
+                case 1:
+                    
+                    cout << "Enter a new Name: ";
+                    cin >> name;
+                    current ->getData().setName(name);
+                    cout << current->getData().getName(); 
+                    break;
+                case 2:
+                    cout << "Enter a new Type: ";
+
+                    break;
+                case 3:
+                    cout << "Enter a new Age: ";
+
+                    break;
+                case 4:
+                    cout << "Enter a new Weight: ";
+
+                    break;
+                case 5:
+                    cout << "Enter a new Weight: ";
+
+                    break;
+                case 6:
+                    cout << "Enter a new BMI: ";
+
+                    break; 
+
+                // PetNode<T>* newNode = new PetNode<T>(*temp);
+
+                // previous -> setNext(newNode);
+                // newNode->setNext(current->getNext());
+
+                // delete current;
+            }
+
         }
 
         void printList()

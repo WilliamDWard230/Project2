@@ -67,7 +67,8 @@ int main(){
                     cout << itr << endl;
                     cout << "1. Next Character" << endl;
                     cout << "2. Remove Pet" << endl;
-                    cout << "3. Return to main menu" << endl;
+                    cout << "3. Update Pet Info" << endl;
+                    cout << "4. Return to main menu" << endl;
                     cin >> subMenuChoice;
                     switch(subMenuChoice){
                         case 1:
@@ -76,11 +77,16 @@ int main(){
                             break;
                         case 2:
                             PetList.removePet(previous, current);
+                            current = PetList.iteratorPlus(current);
+                            previous = current;
                             break;
-                        case 3:
+                        case 3: 
+                            PetList.updatePetInfo(previous, current);
+                            break;
+                        case 4:
                             break;
                     }
-                } while (subMenuChoice != 3);
+                } while (subMenuChoice != 4);
                 break;
             case 3:
                 break;
