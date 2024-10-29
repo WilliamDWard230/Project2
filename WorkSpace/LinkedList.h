@@ -20,6 +20,7 @@ class PetNode
         void setNext(PetNode* givenNext) {Next = givenNext;}
         PetNode* getNext() {return Next;}
         T getData() {return Data;}
+        void setData(PetNode<T> object){Data = object.getData();}
 };
 
 template <typename T>
@@ -144,10 +145,10 @@ class PetLinkedList
             }
         }
 
-        void updatePetInfo(PetNode<T>* previous, PetNode<T>* current)
+        void updatePetInfo(PetNode<T>* current)
         {   
+            Pet temp;
             HealthInfo object;
-            Pet* temp;
             string name;
             string type;
             string age;
@@ -172,28 +173,50 @@ class PetLinkedList
                     
                     cout << "Enter a new Name: ";
                     cin >> name;
-                    current ->getData().setName(name);
-                    cout << current->getData().getName(); 
+                    temp = current ->getData();
+                    temp.setName(name);
+                    current->setData(temp);
                     break;
                 case 2:
                     cout << "Enter a new Type: ";
-
+                    cin >> type;
+                    temp = current ->getData();
+                    temp.setType(type);
+                    current->setData(temp);
                     break;
                 case 3:
                     cout << "Enter a new Age: ";
-
+                    cin >> age;
+                    temp = current ->getData();
+                    temp.setAge(age);
+                    current->setData(temp);
                     break;
                 case 4:
                     cout << "Enter a new Weight: ";
-
+                    cin >> weight;
+                    temp = current ->getData();
+                    object = temp.getObject();
+                    object.setWeight(weight);
+                    temp.setHealthInfo(object);
+                    current->setData(temp);
                     break;
                 case 5:
                     cout << "Enter a new Weight: ";
-
+                    cin >> desiredWeight;
+                    temp = current ->getData();
+                    object = temp.getObject();
+                    object.setDesiredWeight(desiredWeight);
+                    temp.setHealthInfo(object);
+                    current->setData(temp);
                     break;
                 case 6:
                     cout << "Enter a new BMI: ";
-
+                    cin >> bmi;
+                    temp = current ->getData();
+                    object = temp.getObject();
+                    object.setBMI(bmi);
+                    temp.setHealthInfo(object);
+                    current->setData(temp);
                     break; 
 
                 // PetNode<T>* newNode = new PetNode<T>(*temp);

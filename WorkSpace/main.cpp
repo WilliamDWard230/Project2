@@ -81,7 +81,7 @@ int main(){
                             previous = current;
                             break;
                         case 3: 
-                            PetList.updatePetInfo(previous, current);
+                            PetList.updatePetInfo(current);
                             break;
                         case 4:
                             break;
