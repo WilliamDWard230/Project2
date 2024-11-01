@@ -16,7 +16,7 @@ int main(){
     string fileString;
     file >> fileString;
 
-    PetList.readInText(fileString, &PetList);
+    PetList.readInText(fileString, &PetList);       //reads in file and creates list.
     current = PetList.iterator();
 
     do {
@@ -63,7 +63,7 @@ int main(){
             case 2:
                 do 
                 {   
-                    Pet itr = current->getData();
+                    Pet itr = current->getData();       //pet object equal to current node
                     cout << itr << endl;
                     cout << "1. Next Character" << endl;
                     cout << "2. Remove Pet" << endl;
@@ -73,12 +73,12 @@ int main(){
                     switch(subMenuChoice){
                         case 1:
                             previous = current;
-                            current = PetList.iteratorPlus(current);
+                            current = PetList.iteratorPlus(current);        //iterates forward
                             break;
                         case 2:
-                            PetList.removePet(previous, current);
-                            current = PetList.iteratorPlus(current);
-                            previous = current;
+                            PetList.removePet(previous, current);       //deletes current and tracks previous
+                            current = PetList.iteratorPlus(current);    //iteratres forward
+                            previous = current;     //rejoins disjointed list
                             break;
                         case 3: 
                             PetList.updatePetInfo(current);
@@ -88,16 +88,17 @@ int main(){
                     }
                 } while (subMenuChoice != 4);
                 break;
-            case 3: PetList.addNewPet(&PetList);
+            case 3: PetList.addNewPet(&PetList);        //adds new pet
                 break;
             case 4:
-                cout << "\nBugger off then!" << endl;
+                cout << "\nBugger off then!" << endl;       //ends program
+                //PetList.selectionSort();
+                // PetList.printSorted();
                 PetList.~PetLinkedList();
                 break;
         }
     }while (menuChoice != 4);
     
-    //PetList.sortByAge();
     return 0;
 }
 

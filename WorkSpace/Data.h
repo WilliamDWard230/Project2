@@ -13,13 +13,13 @@ class HealthInfo
 
     public:
 
-    HealthInfo()
+    HealthInfo()    //default constructor
     {
         Weight = 0;
         BMI = 0;
         DesiredWeight = 0;
     }
-    HealthInfo(double givenWeight, double givenBMI, double givenDesiredWeight)
+    HealthInfo(double givenWeight, double givenBMI, double givenDesiredWeight)      //parameterized constructor
     {
         Weight = givenWeight;
         BMI = givenBMI;
@@ -34,7 +34,7 @@ class HealthInfo
     double getDesiredWeight();
 
 };
-class Pet
+class Pet       //data class
 {
     private:
 
@@ -75,7 +75,7 @@ class Pet
     bool operator<(Pet &right_comparison) { return this->Age < right_comparison.Age; }
     bool operator>(Pet &right_comparison) { return this->Age > right_comparison.Age; }
 
-    friend ostream &operator<<(ostream &os, Pet &aPet)
+    friend ostream &operator<<(ostream &os, Pet &aPet) //overloaded << operator 
     {
         os << "Name: " << aPet.Name << endl;
         os << "Type: " << aPet.Type << endl;

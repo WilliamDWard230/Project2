@@ -1,0 +1,35 @@
+CSC 1310 Lab Write-up
+William Ward
+Elliot Lovins
+
+	For this program we attempted to turn use the data class from the previous project and create a linked list of pet objects. We were able to successfully implement this goal. We read in a file of pet information, create pet data objects. We are able to print the list of pets, iterate through the list, and we can update or remove the current pet object. We can also add a new pet to the list. We used an iterator to traverse the list instead of taking user input and using a while loop to reach the selected pet. That was also successful. 
+
+Here is a list of our main functions from the linked list class.
+        T* getHead();
+        T* getTail();
+
+        //checks if linked list is empty
+        bool isEmpty();
+        //returns the current node
+        PetNode<T>* iterator();
+        //increments the iterator
+        PetNode<T>* iteratorPlus(PetNode<T>* current);
+        //returns length of list
+        int getLength();
+        //deletes a pet from list
+        void removePet(PetNode<T>* previous, PetNode<T>* current);
+        //reads from text file and creates pet objects then inserts in list
+        void readInText(string testString, PetLinkedList<T>* PetList);
+        //inserts a pet object at the head of list
+        void insertAtHead(T givenObject);
+        //updates a pet's info
+        void updatePetInfo(PetNode<T>* current);
+        //prints names of pets
+        void printList();
+        //Adds a new pet
+        void addNewPet(PetLinkedList<T>* PetList);
+        //sorts linked list into an array
+        PetNode<T>* selectionSort();
+        void printSorted();
+
+	All of our functions do what we intended them to do apart from the selection sorting function. Despite our best efforts we were unable to get the function to work. If we could do anything different, we would probably have started on the sorting algorithm first. The rest of the program was easy enough to figure out bar plenty of bug testing. Some additional example code would be extremely helpful or a more expansive explanation of the examples provided in the program 2 overview.  
