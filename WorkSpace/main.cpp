@@ -22,8 +22,8 @@ int main(){
     do {
         cout << "\n\nWelcome to our Veterinary Office! What would you like to do today?" << endl;
         cout << "1. View the Pets in the Kennel" << endl;
-        cout << "2. Add a Pet to the Kennel" << endl;
-        cout << "3. Search for a Pet" << endl;
+        cout << "2. Update Pet Info or Remove a Pet" << endl;
+        cout << "3. Add a Pet to the Kennel" << endl;
         cout << "4. Leave the Clinc" << endl;
         cin >> menuChoice;
         while (menuChoice < 1 || menuChoice > 4 || cin.fail())
@@ -35,8 +35,8 @@ int main(){
                 cin.ignore();
                 cout << "\nWelcome to our Veterinary Office! What would you like to do today?" << endl;
                 cout << "1. View the Pets in the Kennel" << endl;
-                cout << "2. Add a Pet to the Kennel" << endl;
-                cout << "3. Search for a Pet" << endl;
+                cout << "2. Update Pet Info or Remove a Pet" << endl;
+                cout << "3. Add a Pet to the Kennel" << endl;
                 cout << "4. Leave the Clinc" << endl;
                 cin >> menuChoice;
             }
@@ -45,8 +45,8 @@ int main(){
                 cout << "\nOops! you entered an invalid choice! Please enter 1, 2, or 3!" << endl;
                 cout << "\nWelcome to our Veterinary Office! What would you like to do today?" << endl;
                 cout << "1. View the Pets in the Kennel" << endl;
-                cout << "2. Add a Pet to the Kennel" << endl;
-                cout << "3. Search for a Pet" << endl;
+                cout << "2. Update Pet Info or Remove a Pet" << endl;
+                cout << "3. Add a Pet to the Kennel" << endl;
                 cout << "4. Leave the Clinc" << endl;
                 cin >> menuChoice;
             }
@@ -88,7 +88,7 @@ int main(){
                     }
                 } while (subMenuChoice != 4);
                 break;
-            case 3:
+            case 3: PetList.addNewPet(&PetList);
                 break;
             case 4:
                 cout << "\nBugger off then!" << endl;

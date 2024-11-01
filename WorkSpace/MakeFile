@@ -1,0 +1,27 @@
+# Define compiler and flags
+CXX = g++
+CXXFLAGS = -Wall -std=c++20
+
+# Define source files
+SRCS = main.cpp Data.cpp 
+
+# Define object files
+OBJS = $(SRCS:.cpp=.o)
+
+# Define executable name
+TARGET = main_Exe
+
+# Default target
+all: $(TARGET)
+
+# Build the executable
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(TARGET)
+
+# Compile each source file into an object file
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Clean up
+clean:
+	rm -f $(OBJS) $(TARGET)
