@@ -1,0 +1,27 @@
+#Help from:
+#https://gist.github.com/zobayer1/7265c698d1b024bb7723bc624aeedeb3
+
+# Compiler and flags
+CXX = g++
+CXX_FLAGS = -std=c++17 -Wall -Wpedantic -Wextra
+
+# Target executable
+Target = mainExe
+
+# Source files
+SRC = main.cpp Data.cpp LinkedList.cpp
+
+# Object files
+OBJS = $(SRC:.cpp=.o)
+
+# Build the target
+$(Target): $(OBJS)
+    $(CXX) $(CXX_FLAGS) -o $(Target) $(OBJS)
+
+# Compile object files
+%.o: %.cpp
+    $(CXX) $(CXX_FLAGS) -c $< -o $@
+
+# Clean target
+clean:
+    rm -f $(Target) $(OBJS)
