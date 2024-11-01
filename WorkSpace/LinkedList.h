@@ -87,7 +87,7 @@ class PetLinkedList
         //Adds a new pet
         void addNewPet(PetLinkedList<T>* PetList);
         //sorts linked list into an array
-        PetNode<T>* selectionSort();
+        void selectionSort();
         void printSorted();
         
         
@@ -158,11 +158,10 @@ void PetLinkedList<T>::removePet(PetNode<T> *previous, PetNode<T> *current){
     delete current;
 }
 template <typename T>
-void PetLinkedList<T>::readInText(std::__1::string testString, PetLinkedList<T> *PetList){
+void PetLinkedList<T>::readInText(string testString, PetLinkedList<T> *PetList){
     string type;
     string name;
     string age;
-    int count = 0;
     ifstream file("VetPetInfo.txt");
 
     file >> testString;
@@ -301,7 +300,7 @@ void PetLinkedList<T>::addNewPet(PetLinkedList<T> *PetList){
     string name;
     string type;
     string age;
-    int selection;
+    //int selection;
     double weight;
     double desiredWeight;
     double bmi;
@@ -330,39 +329,28 @@ void PetLinkedList<T>::addNewPet(PetLinkedList<T> *PetList){
         
 }
 template <typename T>
-PetNode<T>* PetLinkedList<T>::selectionSort(){
+void PetLinkedList<T>::selectionSort() 
+{
     PetNode<T>* current = Head;
-
-    while (current != NULL){
-
+    while (current != NULL) 
+    {
+        PetNode<T>* minNode = current;
         PetNode<T>* right = current->getNext();
-        PetNode<T>* left = current;
-
-        Pet PCurrent = current->getData();
-        Pet PRight = right->getData();
-        Pet PLeft = left->getData(); 
-
-        int cCurrent = stoi(PCurrent.getAge());
-        int cRight = stoi(PRight.getAge());
-        int cLeft = stoi(PLeft.getAge());
-
-        while (right != NULL){
-            if(stoi(right->getData().getAge()) < stoi(left->getData().getAge())){
-                left = right;
+        while (right != NULL) 
+        {
+            if (stoi(right->getData().getAge()) < stoi(minNode->getData().getAge())) 
+            {
+                minNode = right;
             }
-            right = right -> getNext();
-            Pet t = left -> getData();
+            right = right->getNext();
         }
-        
         Pet tempData = current->getData();
-        current->setData(left->getData());
-        left->setData(tempData);
-
-        current = current ->getNext();
-
+        current->setData(minNode->getData());
+        minNode->setData(tempData);
+        current = current->getNext();
     }
-    return current;
 }
+
 template <typename T>
 void PetLinkedList<T>::printSorted(){
     PetNode<T>* current = Head;

@@ -24,9 +24,10 @@ int main(){
         cout << "1. View the Pets in the Kennel" << endl;
         cout << "2. Update Pet Info or Remove a Pet" << endl;
         cout << "3. Add a Pet to the Kennel" << endl;
-        cout << "4. Leave the Clinc" << endl;
+        cout << "4. Sort the pets in the Kennel by age" << endl;
+        cout << "5. Leave the Clinc" << endl;
         cin >> menuChoice;
-        while (menuChoice < 1 || menuChoice > 4 || cin.fail())
+        while (menuChoice < 1 || menuChoice > 5 || cin.fail())
         {
             if (cin.fail())
             {
@@ -37,33 +38,36 @@ int main(){
                 cout << "1. View the Pets in the Kennel" << endl;
                 cout << "2. Update Pet Info or Remove a Pet" << endl;
                 cout << "3. Add a Pet to the Kennel" << endl;
-                cout << "4. Leave the Clinc" << endl;
+                cout << "4. Sort the pets in the Kennel by age" << endl;
+                cout << "5. Leave the Clinc" << endl;
                 cin >> menuChoice;
             }
             else
             {
-                cout << "\nOops! you entered an invalid choice! Please enter 1, 2, or 3!" << endl;
+                cout << "\nOops! you entered an invalid choice! Please enter 1-5!" << endl;
                 cout << "\nWelcome to our Veterinary Office! What would you like to do today?" << endl;
                 cout << "1. View the Pets in the Kennel" << endl;
                 cout << "2. Update Pet Info or Remove a Pet" << endl;
                 cout << "3. Add a Pet to the Kennel" << endl;
-                cout << "4. Leave the Clinc" << endl;
+                cout << "4. Sort the pets in the Kennel by age" << endl;
+                cout << "5. Leave the Clinc" << endl;
                 cin >> menuChoice;
             }
         }
         switch (menuChoice){
             case 1:
                 if (PetList.isEmpty()){
-                    cout << "The clinic is empty \n";
+                    cout << "\n\n\nThe clinic is empty \n";
                 }
                 length = PetList.getLength();
-                cout << "There are " << length << " pets in the clinic." << endl;
+                cout << "\n\n\nThere are " << length << " pets in the clinic." << endl;
                 PetList.printList();
                 break;
             case 2:
                 do 
                 {   
                     Pet itr = current->getData();       //pet object equal to current node
+                    cout << "\n\n\n";
                     cout << itr << endl;
                     cout << "1. Next Character" << endl;
                     cout << "2. Remove Pet" << endl;
@@ -91,13 +95,21 @@ int main(){
             case 3: PetList.addNewPet(&PetList);        //adds new pet
                 break;
             case 4:
+                if (PetList.isEmpty())
+                {
+                    cout << "\n\n\nThe clinic is empty \n";
+                }
+                else
+                {
+                    PetList.selectionSort();
+                    cout << "\n\nThe list has been sorted!!\n\n";
+                }
+                break;
+            case 5:
                 cout << "\nBugger off then!" << endl;       //ends program
-                //PetList.selectionSort();
-                // PetList.printSorted();
-                PetList.~PetLinkedList();
                 break;
         }
-    }while (menuChoice != 4);
+    }while (menuChoice != 5);
     
     return 0;
 }
